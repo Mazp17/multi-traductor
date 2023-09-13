@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 type Languages = {
   code: string;
@@ -27,6 +28,19 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const maxElements = 5;
 
+  const customParaContenedores = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+      transition: { delay: 1, duration: 1 },
+    },
+    show: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: 1, duration: 1, ease: [0.12, 0.64, 0.71, 0.97] },
+    }),
+  };
+
   const addInput = async (lang: string) => {
     if (inputs.length < maxElements) {
       setInputs((inputs) => [...inputs, lang]);
@@ -51,8 +65,13 @@ function App() {
 
   return (
     <>
-      <article className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] transition duration-200 hover:scale-105">
-        <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"></div>
+      <motion.article
+        variants={customParaContenedores}
+        initial="hidden"
+        whileInView="show"
+        className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]  hover:scale-105"
+      >
+        {/* Menu superior para agregar y seleccionar idiomas */}
         <header className="mt-4 w-72 rounded-t-lg bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
           <button
             className="m-auto relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group"
@@ -98,6 +117,7 @@ function App() {
             ))}
           </select>
         </header>
+        {/* Contenedor de todos los text area */}
         <main className="mt-0 m-4 inline-flex bg-[#2e2e2e] gap-2 px-4 py-4 rounded-t-none rounded-lg h-[70vh] overflow-y-auto">
           <textarea
             className="px-2 py-2 w-1/2 hover:outline-none bg-zinc-300 text-zinc-700"
@@ -110,9 +130,7 @@ function App() {
               <TextTarget key={index} />
             ))}
             {inputs.length === maxElements ? (
-              <div>
                 <Toaster position="top-center" />
-              </div>
             ) : (
               <span className="text-center font-bold">
                 Idiomas agregados{" "}
@@ -124,7 +142,7 @@ function App() {
             )}
           </div>
         </main>
-      </article>
+      </motion.article>
     </>
   );
 }
