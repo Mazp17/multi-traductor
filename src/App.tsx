@@ -1,4 +1,3 @@
-import { IconPlus } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
 
@@ -14,11 +13,11 @@ type Inputs = {
 
 
 function App() {
-  const [languages, setLanguages] = useState<Languages[]>([]);
-  
-  const [inputs, setInputs] = useState<string[]>([]);
 
+  const [languages, setLanguages] = useState<Languages[]>([]);
+  const [inputs, setInputs] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const maxElements = 5;
 
   const addInput = async (lang: string) => {
     setInputs(inputs => [...inputs, lang]);
@@ -41,17 +40,26 @@ function App() {
 
   return (
     <>
-      <article className="rounded-md flex flex-col gap-2 w-2/3">
-        <header className="inline-flex gap-2">
-          <button className="inline-flex bg-green-600 rounded-md px-4 py-2"
-            onClick={() => {
+
+      <article className="rounded-xl flex m-auto flex-col w-2/3 bg-white">
+        <header className="mt-4 w-72 rounded-t-lg bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
+          
+      <button className="m-auto relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group" onClick={() => {
               const lang = (document.querySelector("#languages") as HTMLInputElement);
               addInput(lang.value);
             }}>
-            <IconPlus /> Add
-          </button>
+        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-green-600 group-hover:translate-x-0 ease">
+          <svg className="w-6 h-6 icon icon-tabler icon-tabler-plus" xmlns="http://www.w3.org/2000/svg" stroke="#fff" stroke-linecap="round"  viewBox="0 0 24 24" stroke-width="2" fill="#fff" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+              <path d="M5 12l14 0"></path>
+          </svg>
+        </span>
+        <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">Añadir</span>
+        <span className="relative invisible">Añadir</span>
+      </button>
 
-          <select name="languages" id="languages" className="text-zinc-200 rounded-md px-4 bg-zinc-700">
+          <select name="languages" id="languages" className="m-auto bg-neutral-700 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto p-3 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
             {isLoading && (
               <option>
                 Loading
@@ -63,11 +71,8 @@ function App() {
               </option>
             ))}
           </select>
-          <p className="self-end text-zinc-500">
-            Solo puedes seleccionar 5 idiomas
-          </p>
         </header>
-        <main className="inline-flex bg-zinc-700 gap-2 px-4 py-4 rounded-lg h-[70vh] overflow-y-auto">
+        <main className="mt-0 m-4 inline-flex bg-[#2e2e2e] gap-2 px-4 py-4 rounded-t-none rounded-lg h-[70vh] overflow-y-auto">
           <textarea
             className="px-2 py-2 w-1/2 hover:outline-none bg-zinc-300 text-zinc-700"
             name="text-target"

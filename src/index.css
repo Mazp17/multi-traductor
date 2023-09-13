@@ -1,9 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/rubik');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    font-family: 'Rubik', sans-serif;               
+}
 
 @layer base {
     textarea {
         @apply resize-none text-zinc-700 focus:outline-none hover:outline-none;
     }
 }
+
+
+
