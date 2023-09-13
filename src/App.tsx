@@ -51,7 +51,8 @@ function App() {
 
   return (
     <>
-      <article className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-r from-cyan-900 to-emerald-500">
+      <article className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] transition duration-200 hover:scale-105">
+        <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"></div>
         <header className="mt-4 w-72 rounded-t-lg bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
           <button
             className="m-auto relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group"
@@ -115,7 +116,7 @@ function App() {
             ) : (
               <span className="text-center font-bold">
                 Idiomas agregados{" "}
-                <span className="bg-gradient-to-r from-cyan-900 to-emerald-500 color-zinc-50 p-1 m-auto">
+                <span className="bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] p-1 m-auto">
                   {" "}
                   {inputs.length}
                 </span>
