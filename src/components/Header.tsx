@@ -1,34 +1,42 @@
 import { motion } from "framer-motion";
 
 export const Header = () => (
-  <header className="flex flex-col items-center m-12">
-    <h1 className="text-6xl text-white font-bold bg-clip-text text-transparent">
-      MultiTraductor
-    </h1>
-    <p className="text-red-600">(Proximamente a definir un mejor nombre!!!)</p>
-    <motion.a
-      whileHover={{ scale: 1.2}}
-      whileTap={{ scale: 0.9}}
-      transition={{ type: "spring", stiffness: 900, damping: 14 }}
-      className="w-3 h-auto w-auto p-1 rounded-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]"
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      target="_blank"
-      rel="noopener noreferrer"
+  <>
+    <nav
+      className="sticky h-auto p-4 top-0 z-99 bg-[#232226] border-2 border-[rgba(51,57,71,.48)] backdrop-filter backdrop-blur-lg bg-opacity-50"
+      id="navbar-exa"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="icon icon-tabler icon-tabler-brand-github"
-        height="34"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-      </svg>
-    </motion.a>
-  </header>
+      <div className="flex flex-1 justify-between items-center">
+        <span className="font-bold m-auto">MultiTraductor</span>
+        <a
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          className="m-auto ring-1 ring-white rounded-md transition duration-200 hover:bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]  hover:ring-3 hover:scale-125"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            fill="currentColor"
+            className="p-1.5"
+            stroke-width="0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1024 1024"
+            height="2.5em"
+          >
+            <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div className="flex justify-end items-center"></div>
+    </nav>
+
+    <header className="flex flex-col items-center m-12">
+      <h1 className="text-6xl text-white font-bold bg-clip-text text-transparent">
+        MultiTraductor
+      </h1>
+      <p className="text-red-600">
+        (Proximamente a definir un mejor nombre!!!)
+      </p>
+    </header>
+  </>
 );
