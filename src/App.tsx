@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import BtnTranslate from "./components/BtnTranslate";
 
 type Languages = {
   code: string;
@@ -72,7 +73,8 @@ function App() {
         className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]  hover:scale-105"
       >
         {/* Menu superior para agregar y seleccionar idiomas */}
-        <header className="mt-4 w-72 rounded-t-lg bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
+        <header className="mt-4 w-2/5 rounded-t-lg gap-2 bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
+          <BtnTranslate></BtnTranslate>
           <button
             className="m-auto relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group"
             onClick={() => {
