@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion";
 import BtnTranslate from "./components/BtnTranslate";
+import { IconExclamationCircle } from "@tabler/icons-react";
 
 type Languages = {
   code: string;
@@ -13,15 +14,15 @@ type Languages = {
 type Inputs = {
   code: string;
 };
+
 const toastMensajeAlertaMax = () => {
-  toast.error("Solo puedes añadir hasta 5 idiomas :(", {
-    style: {
-      borderRadius: "10px",
-      background: "#333",
-      color: "#fff",
-    },
+  toast.error('Solo puedes agregar hasta 5 idiomas :(', {
+    position: 'bottom-center',
+    description: 'Puedes agregar un maximo de 5 idiomas para traducir simultaneamente',
+    icon: <IconExclamationCircle />
   });
 };
+
 
 function App() {
   const [languages, setLanguages] = useState<Languages[]>([]);
@@ -132,7 +133,7 @@ function App() {
               <TextTarget key={index} />
             ))}
             {inputs.length === maxElements ? (
-                <Toaster position="top-center" />
+                <Toaster closeButton={true} theme="dark" richColors visibleToasts={3}/>
             ) : (
               <span className="text-center font-bold">
                 Idiomas agregados{" "}
