@@ -33,7 +33,7 @@ const customParaItems = {
   }),
 };
 
-export const SeccionUso = () => (
+export const Uso = () => (
   <>
     <motion.div
       variants={customParaContenedores}
