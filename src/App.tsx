@@ -74,10 +74,9 @@ function App() {
         className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]  hover:scale-105"
       >
         {/* Menu superior para agregar y seleccionar idiomas */}
-        <header className="mt-4 w-2/5 rounded-t-lg gap-2 bg-[#2e2e2e] p-2 pt-4 ml-4 inline-flex ">
-          <BtnTranslate></BtnTranslate>
+        <header className="mt-4 w-fit rounded-t-lg gap-2 bg-[#2e2e2e] p-4  ml-4 inline-flex ">
           <button
-            className="m-auto relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group"
+            className=" relative inline-flex items-center justify-center p-2 px-6 py-2 bg-green-600 overflow-hidden font-medium transition duration-300 ease-out border-2 border-green-600 rounded-lg group"
             onClick={() => {
               const lang = document.querySelector(
                 "#languages"
@@ -106,11 +105,12 @@ function App() {
             </span>
             <span className="relative invisible">Añadir</span>
           </button>
+          <BtnTranslate />  
 
           <select
             name="languages"
             id="languages"
-            className="m-auto bg-neutral-700 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto p-3 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            className="bg-neutral-700 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto p-3 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
           >
             {isLoading && <option>Loading</option>}
             {languages.map((val, i) => (

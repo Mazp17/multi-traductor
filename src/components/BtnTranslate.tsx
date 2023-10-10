@@ -11,7 +11,7 @@ interface BtnTranslateState {
 class BtnTranslate extends React.Component<BtnTranslateProps, BtnTranslateState> {
     render() {
         return (
-            <button className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-100 ease-out"
+            <button className="bg-blue-600  focus:ring-4 focus:ring-blue-500 px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-100 ease-out"
             onClick={() => this.fetchApi()}>
                 Traducir
             </button>
