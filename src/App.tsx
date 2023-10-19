@@ -11,10 +11,6 @@ type Languages = {
   targets: string[];
 };
 
-type Inputs = {
-  code: string;
-};
-
 const toastMensajeAlertaMax = () => {
   toast.error('Solo puedes agregar hasta 5 idiomas :(', {
     position: 'bottom-center',
@@ -36,7 +32,7 @@ function App() {
       y: 100,
       transition: { delay: 1, duration: 1 },
     },
-    show: (i: number) => ({
+    show: () => ({
       opacity: 1,
       y: 0,
       transition: { delay: 1, duration: 1, ease: [0.12, 0.64, 0.71, 0.97] },

@@ -1,4 +1,4 @@
-import { easeOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const customParaContenedores = {
   hidden: {
@@ -6,7 +6,7 @@ const customParaContenedores = {
     y: 100,
     transition: { delay: 9, duration: 0.1 },
   },
-  show: (i: number) => ({
+  show: () => ({
     opacity: 1,
     y: 0,
     transition: { delay: 0.3, duration: 1.5 },
