@@ -22,21 +22,9 @@ const toastMensajeAlertaMax = () => {
 function App() {
   const [languages, setLanguages] = useState<Languages[]>([]);
   const [inputs, setInputs] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const maxElements = 5;
-
-  const customParaContenedores = {
-    hidden: {
-      opacity: 0,
-      y: 100,
-      transition: { delay: 1, duration: 1 },
-    },
-    show: () => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: 1, duration: 1, ease: [0.12, 0.64, 0.71, 0.97] },
-    }),
-  };
 
   const addInput = async (lang: string) => {
     if (inputs.length < maxElements) {
@@ -73,6 +61,7 @@ function App() {
                 "#languages"
               ) as HTMLInputElement;
               addInput(lang.value);
+              console.log(selectedOption);
             }}
           >
             <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-green-600 group-hover:translate-x-0 ease">
@@ -102,7 +91,13 @@ function App() {
             name="languages"
             id="languages"
             className="bg-neutral-700 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto p-3 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            onChange={(e) => {
+              const selectedOption = e.target.options[e.target.selectedIndex] as HTMLOptionElement;
+              const langName = selectedOption.getAttribute('name-lang') || '';
+              setSelectedOption(langName);
+            }}
           >
+            <option value="" selected disabled hidden>Elige un idioma</option>
             {isLoading && <option>Loading</option>}
             {languages.map((val, i) => (
               <option key={i} name-lang={val.name} value={val.code}>
