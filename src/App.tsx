@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
 import { Toaster, toast } from "sonner";
-import { motion } from "framer-motion";
 import BtnTranslate from "./components/BtnTranslate";
 import { IconExclamationCircle } from "@tabler/icons-react";
 
@@ -63,12 +62,8 @@ function App() {
 
   return (
     <>
-      <motion.article
-        variants={customParaContenedores}
-        initial="hidden"
-        whileInView="show"
-        className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]  hover:scale-105"
-      >
+      <article
+        className="rounded-xl flex m-auto flex-col w-2/3 bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6]">
         {/* Menu superior para agregar y seleccionar idiomas */}
         <header className="mt-4 w-fit rounded-t-lg gap-2 bg-[#2e2e2e] p-4  ml-4 inline-flex ">
           <button
@@ -141,7 +136,7 @@ function App() {
             )}
           </div>
         </main>
-      </motion.article>
+      </article>
     </>
   );
 }
