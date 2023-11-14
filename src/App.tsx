@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { TextTarget } from "./components/TextTarget";
 import { Toaster, toast } from "sonner";
 import BtnTranslate from "./components/BtnTranslate";
-import { IconExclamationCircle } from "@tabler/icons-react";
 
 type Languages = {
   code: string;
